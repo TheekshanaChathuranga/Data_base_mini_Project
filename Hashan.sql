@@ -7,7 +7,7 @@ CREATE TABLE Course(
     CONSTRAINT Course PRIMARY KEY (Course_id,Department_id)
     );
 
-    CREATE TABLE Student(
+CREATE TABLE Student(
     Student_id VARCHAR(10),
     Name VARCHAR(30),
     Contact_no VARCHAR(11),
