@@ -13,6 +13,7 @@ CREATE TABLE Staff
 CREATE TABLE Admin
      (
      Admin_id VARCHAR(10),
+     Staff_id VARCHAR(10),
      Contact_no VARCHAR(11),
      PRIMARY KEY(Admin_id)
      );
@@ -20,6 +21,7 @@ CREATE TABLE Admin
 CREATE TABLE Dean
      (
      Dean_id VARCHAR(10),
+     Staff_id VARCHAR(10),
      Contact_no VARCHAR(11),
      PRIMARY KEY(Dean_id)
      );
@@ -27,6 +29,7 @@ CREATE TABLE Dean
 CREATE TABLE Lecture
      (
      Lecture_id VARCHAR(10),
+     Staff_id VARCHAR(10),
      Contact_no VARCHAR(11),
      PRIMARY KEY(Lecture_id)
      );
