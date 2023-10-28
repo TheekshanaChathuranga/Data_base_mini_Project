@@ -52,31 +52,32 @@ VALUES
 ('MD004','Multi Disciplinary')
 ;
 
+
 INSERT INTO staff
 VALUES
-('S0001','Thushara Ekanayake','110000.00','NULL'),
-('S0002',Ruwan Perera','180000.00','NULL'),
-('S0003','Sunil Premasiri','90000.00','ET001'),
-('S0004','Ishan Rangajeewa','90000.00','ET001'),
-('S0005','Malshani Ekanayake','90000.00','ET001'),
-('S0006','Sewwandi Nisansala','90000.00','ET001'),
-('S0007','Amarasiri Peeris','90000.00','ICT002'),
-('S0008','Gayani Erandathi','90000.00','ICT002'),
-('S0009','Hirusha Dilmin','90000.00','ICT002'),
-('S0010','Tharuni Imesha','90000.00','ICT002'),
-('S0011','Nimantha Sampath','90000.00','BST003'),
-('S0012','Madhubashini Bandara','90000.00','BST003'),
-('S0013','Nalani Jayasooriya','90000.00','BST003'),
-('S0014','Kasun Indipa','90000.00','BST003'),
-('S0015','Nilanthi Kumari','90000.00','MD004'),
-('S0016','Nethmi Herath','90000.00','MD004'),
-('S0017','Chathuranga Adhikari','90000.00','MD004'),
-('S0018','Ruwangi Ekanayake','90000.00','MD004'),
-('S0019','Nipuni Ayodya','90000.00','MD004'),
-('S0020','Sampath Kumara','60000.00','ET001'),
-('S0021','Sanjaya Kavishka','60000.00','ICT002'),
-('S0022','Nirmal Silva','60000.00','BST003'),
-('S0023','Pethum Madhusanka','60000.00','MD004')
+('S0001','Mr.Thushara Ekanayake','110000.00','NULL'),
+('S0002',Mr.Ruwan Perera','180000.00','NULL'),
+('S0003','Mr.Sunil Premasiri','90000.00','ET001'),
+('S0004','Mr.Ishan Rangajeewa','90000.00','ET001'),
+('S0005','Mr.P.H.P.Nuwan Laksiri','90000.00','ICT002'),
+('S0006','s.Rumeshika Wickrama Arachchi','90000.00','ICT002'),
+('S0007','Prof. Subash Jayasinghe','90000.00','ICT002'),
+('S0008','Ms.Chanduni Gamage','90000.00','ICT002'),
+('S0009','Ms.Nilamthi Adikaram','90000.00','ICT002'),
+('S0010','Mr.Harshana Senavirathna','90000.00','ICT002'),
+('S0011','Ms.Hiranya Amarasinghe','90000.00','ICT002'),
+('S0012','Ms.Madhubashini Bandara','90000.00','BST003'),
+('S0013','Ms.Nalani Jayasooriya','90000.00','BST003'),
+('S0014','Mr.Kasun Indipa','90000.00','BST003'),
+('S0015','Ms.Nilanthi Kumari','90000.00','MD004'),
+('S0016','Ms.Nethmi Herath','90000.00','MD004'),
+('S0017','Mr.Chathuranga Adhikari','90000.00','MD004'),
+('S0018','Ms.Ruwangi Ekanayake','90000.00','MD004'),
+('S0019','Ms.Nipuni Ayodya','90000.00','MD004'),
+('S0020','Mr.Sampath Kumara','60000.00','ET001'),
+('S0021','Mr.Sanjaya Kavishka','60000.00','ICT002'),
+('S0022','Mr.Nirmal Silva','60000.00','BST003'),
+('S0023','Mr.Pethum Madhusanka','60000.00','MD004')
 ;
 
 INSERT INTO Admin
