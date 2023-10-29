@@ -22,21 +22,7 @@ CREATE TABLE Student(
 
 ////////////////////////////////////////////////////////
 
-INSERT INTO Course
-VALUES
-('ICT1212','ICT001','Database Management Systems','Mr.P.H.P.Nuwan Laksiri','Theory'),
-('ICT1222','ICT001','Database Management Systems Practicum','Mr.P.H.P.Nuwan Laksiri','Practical'),
-('ICT1233','ICT001','Server-Side Web Develop','Ms.Rumeshika Wickrama Arachchi','Theory'),
-('ICT1242','ICT001','Computer Architecture','Prof. Subash Jayasinghe','Theory'),
-('ICT1253','ICT001','Computer Networks','Ms.Chanduni Gamage','Practical'),
-('TCS1212','MD004','Fundamentals of Managemente','Ms.Nilamthi Adikaram','Practical'),
-('TMS1233','ET001','Discrete Mathematics','Mr.Harshana Senavirathna ','Theory'),
-('ENG1212','MD004','English II','Ms.Hiranya Amarasinghe ','Theory')
-;
-
-
-
-INSERT INTO Student
+INSERT INTO student
 VALUES
 ('TG1010','Ishani Kawshalya','071-1245789','A001','T002','L003','D001','ICT1212'),
 ('TG1010','Ishani Kawshalya','071-1245789','A001','T002','L003','D001','ICT1222'),
@@ -198,7 +184,7 @@ VALUES
 ('TG0980','Supun Lokugamage','076-2864721','A001','T002','L006','D001','ICT1253'),
 ('TG0980','Supun Lokugamage','076-2864721','A001','T002','L007','D001','TCS1212'),
 ('TG0980','Supun Lokugamage','076-2864721','A001','T002','L008','D001','TMS1233'),
-('TG0980','Supun Lokugamage','076-2864721','A001','T002','L009','D001ENG1212',''),
+('TG0980','Supun Lokugamage','076-2864721','A001','T002','L009','D001','ENG1212'),
 
 ('TG0833','Ishan Adhikari','075-2252782','A001','T002','L003','D001','ICT1212'),
 ('TG0833','Ishan Adhikari','075-2252782','A001','T002','L003','D001','ICT1222'),
@@ -223,7 +209,7 @@ VALUES
 ('TG0853','Saman Kumara','071-5623199','A001','T002','L004','D001','ICT1233'),
 ('TG0853','Saman Kumara','071-5623199','A001','T002','L005','D001','ICT1242'),
 ('TG0853','Saman Kumara','071-5623199','A001','T002','L006','D001','ICT1253'),
-('TG0853','Saman Kumara','071-5623199','A001','T002','L007','D001',''),TCS1212
+('TG0853','Saman Kumara','071-5623199','A001','T002','L007','D001','TCS1212'),
 ('TG0853','Saman Kumara','071-5623199','A001','T002','L008','D001','TMS1233'),
 ('TG0853','Saman Kumara','071-5623199','A001','T002','L009','D001','ENG1212')
 ;
