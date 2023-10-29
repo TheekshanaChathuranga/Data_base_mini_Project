@@ -6,15 +6,17 @@ CREATE TABLE Staff
      (
      Staff_id VARCHAR(10),
      Name VARCHAR(30),
-     Salary FLOAT(7,2),
-     PRIMARY KEY(Staff_id)
+     Salary FLOAT(10,2),
+     Department_id VARCHAR(8),
+     PRIMARY KEY(Staff_id),
+     FOREIGN KEY (Department_id) REFERENCES Department(Department_id)
      );
 
 CREATE TABLE Admin
      (
      Admin_id VARCHAR(10),
      Staff_id VARCHAR(10),
-     Contact_no VARCHAR(11),
+     Contact_no VARCHAR(12),
      PRIMARY KEY(Admin_id)
      );
 
@@ -22,7 +24,7 @@ CREATE TABLE Dean
      (
      Dean_id VARCHAR(10),
      Staff_id VARCHAR(10),
-     Contact_no VARCHAR(11),
+     Contact_no VARCHAR(12),
      PRIMARY KEY(Dean_id)
      );
 
@@ -30,7 +32,7 @@ CREATE TABLE Lecture
      (
      Lecture_id VARCHAR(10),
      Staff_id VARCHAR(10),
-     Contact_no VARCHAR(11),
+     Contact_no VARCHAR(12),
      PRIMARY KEY(Lecture_id)
      );
 
@@ -38,7 +40,7 @@ CREATE TABLE Lecture
 INSERT INTO staff
 VALUES
 ('S0001','Mr.Thushara Ekanayake','110000.00','NULL'),
-('S0002',Mr.Ruwan Perera','180000.00','NULL'),
+('S0002','Mr.Ruwan Perera','180000.00','NULL'),
 ('S0003','Mr.Sunil Premasiri','90000.00','ET001'),
 ('S0004','Mr.Ishan Rangajeewa','90000.00','ET001'),
 ('S0005','Mr.P.H.P.Nuwan Laksiri','90000.00','ICT002'),
