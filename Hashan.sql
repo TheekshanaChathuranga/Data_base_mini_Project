@@ -20,7 +20,7 @@ CREATE TABLE Student(
     );
 
 
-////////////////////////////////////////////////////////
+
 INSERT INTO Course
 VALUES
 ('ICT1212','ICT001','Database Management Systems','Mr.P.H.P.Nuwan Laksiri','Theory'),
