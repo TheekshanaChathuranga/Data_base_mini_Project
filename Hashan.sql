@@ -1,7 +1,7 @@
 CREATE TABLE Course(
     Course_id VARCHAR(10),
     Department_id VARCHAR(10),
-    C_name VARCHAR(30),
+    C_name VARCHAR(50),
     Lecture_in_charge VARCHAR(30),
     Theory_OR_Practical VARCHAR(10),
     CONSTRAINT Course PRIMARY KEY (Course_id,Department_id)
@@ -21,6 +21,17 @@ CREATE TABLE Student(
 
 
 ////////////////////////////////////////////////////////
+INSERT INTO Course
+VALUES
+('ICT1212','ICT001','Database Management Systems','Mr.P.H.P.Nuwan Laksiri','Theory'),
+('ICT1222','ICT001','Database Management Systems Practicum','Mr.P.H.P.Nuwan Laksiri','Practical'),
+('ICT1233','ICT001','Server-Side Web Develop','Ms.Rumeshika Wickrama Arachchi','Theory'),
+('ICT1242','ICT001','Computer Architecture','Prof. Subash Jayasinghe','Theory'),
+('ICT1253','ICT001','Computer Networks','Ms.Chanduni Gamage','Practical'),
+('TCS1212','MD004','Fundamentals of Managemente','Ms.Nilamthi Adikaram','Practical'),
+('TMS1233','ET001','Discrete Mathematics','Mr.Harshana Senavirathna ','Theory'),
+('ENG1212','MD004','English II','Ms.Hiranya Amarasinghe ','Theory')
+;
 
 INSERT INTO student
 VALUES
