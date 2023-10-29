@@ -36,7 +36,7 @@ VALUES
 
 
 
-INSERT INTO student
+INSERT INTO Student
 VALUES
 ('TG1010','Ishani Kawshalya','071-1245789','A001','T002','L003','D001','ICT1212'),
 ('TG1010','Ishani Kawshalya','071-1245789','A001','T002','L003','D001','ICT1222'),
