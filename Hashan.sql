@@ -16,7 +16,7 @@ CREATE TABLE Student(
     Lecture_id VARCHAR(10),
     Dean_id VARCHAR(10),
     Course_id VARCHAR(10),
-    PRIMARY KEY (Student_id)
+    PRIMARY KEY (Student_id,Lecture_id,Course_id)
     );
 
 
