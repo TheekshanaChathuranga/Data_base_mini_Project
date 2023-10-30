@@ -36,6 +36,12 @@ CREATE TABLE Lecture
      PRIMARY KEY(Lecture_id)
      );
 
+CREATE TABLE Courses_lecture (
+     Course_id VARCHAR(10),
+     Lecture_id VARCHAR(10),
+     PRIMARY KEY (Course_id, Lecture_id)
+     );
+
 
 INSERT INTO staff
 VALUES
@@ -95,10 +101,19 @@ VALUES
 ('L014','S0016','070-7878956'),
 ('L015','S0017','072-2232555'),
 ('L016','S0018','075-4578888'),
-('L017','S0019','075-0189256')
-;
+('L017','S0019','075-0189256');
 
 
 
 
 
+INSERT INTO Courses_lecture (Course_id, Lecture_id)
+VALUES
+     ('ICT1212', 'L003'),
+     ('ICT1222', 'L003'),
+     ('ICT1233', 'L004'),
+     ('ICT1242', 'L005'),
+     ('ICT1253', 'L006'),
+     ('TCS1212', 'L007'),
+     ('TMS1233', 'L008'),
+     ('ENG1212', 'L009');
