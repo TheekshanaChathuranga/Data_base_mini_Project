@@ -109,3 +109,35 @@ VALUES
 ('TCS1212','MD004','Fundamentals of Managemente','Ms.Nilamthi Adikaram','Practical'),
 ('TMS1233','ET001','Discrete Mathematics','Mr.Harshana Senavirathna ','Theory'),
 ('ENG1212','MD004','English II','Ms.Hiranya Amarasinghe ','Theory');
+
+
+-- With All privileges with Grant Option for all the tables in the database 
+
+CREATE USER 'Admin'@'localhost' IDENTIFIED BY 'adminpwd';
+GRANT ALL PRIVILEGES ON lms TO 'Admin'@'localhost' WITH GRANT OPTION;
+
+
+-- With All privileges without Grant for all the tables in the database
+
+CREATE USER 'Dean'@'localhost' IDENTIFIED BY 'deanpwd';
+GRANT ALL PRIVILEGES ON lms TO 'Dean'@'localhost';
+
+
+-- All privileges without Grant and user creation for all the tables in the database
+
+CREATE USER 'Lecturer'@'localhost' IDENTIFIED BY 'lecturer';
+GRANT SELECT, INSERT, UPDATE, DELETE ON lms TO 'Lecturer'@'localhost';
+
+
+-- Read, write and update permissions for attendance related tables/views
+
+CREATE USER 'Technical_Officer'@'localhost' IDENTIFIED BY 'topwd';
+GRANT SELECT, INSERT, UPDATE ON technical_officer.attendance TO 'TechnicalOfficer'@'localhost';
+
+
+-- Read permission for final attendance and final marks/Grades tables/views
+
+CREATE USER 'Student'@'localhost' IDENTIFIED BY 'Studentpwd';
+GRANT SELECT ON lms.attendance TO 'Student'@'localhost';
+GRANT SELECT ON lms.final_mark TO 'Student'@'localhost';
+GRANT SELECT ON lms.mark TO 'Student'@'localhost';
