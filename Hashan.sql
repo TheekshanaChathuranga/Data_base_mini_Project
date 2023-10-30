@@ -259,3 +259,64 @@ VALUES
     ALTER TABLE Courses_lecture
 	ADD FOREIGN KEY (Course_id) REFERENCES Course(Course_id),
 	ADD FOREIGN KEY (Lecture_id) REFERENCES Lecture(Lecture_id);
+
+
+    *****************************************************************
+1.Select all students and their courses:
+    SELECT s.Student_id, s.Name, c.C_name
+    FROM Student s
+    JOIN Course c ON s.Course_id = c.Course_id;
+
+2.Select all courses in the ICT department:
+    SELECT *
+    FROM Course
+    WHERE Department_id = 'ICT002';
+
+3.Select all students who are enrolled in a practical course:
+    SELECT s.Student_id, s.Name, c.C_name
+    FROM Student s
+    JOIN Course c ON s.Course_id = c.Course_id
+    WHERE c.Theory_OR_Practical = 'Practical';
+
+4.Count the number of students in each course:
+    SELECT c.C_name, COUNT(*) AS num_students
+    FROM Student s
+    JOIN Course c ON s.Course_id = c.Course_id
+    GROUP BY c.C_name;
+
+5.Find the courses taught by a specific lecture (e.g., Mr.P.H.P.Nuwan Laksiri):
+    SELECT c.C_name
+    FROM Course c
+    WHERE c.Lecture_in_charge = 'Mr.P.H.P.Nuwan Laksiri';
+
+6.Select all students along with their contact numbers and the name of the department they are in:
+    SELECT s.Student_id, s.Name, s.Contact_no, d.Department_name
+    FROM Student s
+    JOIN Course c ON s.Course_id = c.Course_id
+    JOIN Department d ON c.Department_id = d.Department_id;
+
+7.Find the lectures teaching a specific course (e.g., ICT1212):
+    SELECT l.Lecture_name
+    FROM Courses_lecture cl
+    JOIN Lecture l ON cl.Lecture_id = l.Lecture_id
+    WHERE cl.Course_id = 'ICT1212';
+
+8.Find all students and their courses, ordered by the students name:
+    SELECT s.Student_id, s.Name, c.C_name
+    FROM Student s
+    JOIN Course c ON s.Course_id = c.Course_id
+    ORDER BY s.Name;
+
+9.Select the course with the most students:
+    SELECT c.C_name, COUNT(*) AS num_students
+    FROM Student s
+    JOIN Course c ON s.Course_id = c.Course_id
+    GROUP BY c.C_name
+    ORDER BY num_students DESC
+    LIMIT 1;
+
+10.Select the student with a specific ID (e.g., TG1010):
+    SELECT *
+    FROM Student
+    WHERE Student_id = 'TG1010';
+
