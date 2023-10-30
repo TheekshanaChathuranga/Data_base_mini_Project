@@ -4,7 +4,8 @@ CREATE TABLE Course(
     C_name VARCHAR(50),
     Lecture_in_charge VARCHAR(30),
     Theory_OR_Practical VARCHAR(10),
-    CONSTRAINT Course PRIMARY KEY (Course_id,Department_id)
+    CONSTRAINT Course PRIMARY KEY (Course_id,Department_id),
+    FOREIGN KEY (Department_id) REFERENCES Department(Department_id)  
     );
 
 CREATE TABLE Student(
@@ -15,15 +16,21 @@ CREATE TABLE Student(
     Officer_id VARCHAR(10),
     Dean_id VARCHAR(10),
     Course_id VARCHAR(10),
-    PRIMARY KEY (Student_id,Course_id)
+    PRIMARY KEY (Student_id,Course_id),
+    FOREIGN KEY (Admin_id) REFERENCES Admin(Admin_id),
+    FOREIGN KEY (Officer_id) REFERENCES Technical_officer(Officer_id),
+    FOREIGN KEY (Dean_id) REFERENCES Dean(Dean_id),
+    FOREIGN KEY (Course_id) REFERENCES Course(Course_id)
     );
 
 
 CREATE TABLE Courses_lecture(
 	Course_id VARCHAR(10),
 	Lecture_id VARCHAR(10),
-	PRIMARY KEY (Course_id,Lecture_id)
-);
+	PRIMARY KEY (Course_id,Lecture_id),
+	FOREIGN KEY (Course_id) REFERENCES Course(Course_id),
+        FOREIGN KEY (Lecture_id) REFERENCES Lecture(Lecture_id)
+        );
 
 
 
