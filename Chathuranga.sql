@@ -141,3 +141,7 @@ CREATE USER 'Student'@'localhost' IDENTIFIED BY 'Studentpwd';
 GRANT SELECT ON lms.attendance TO 'Student'@'localhost';
 GRANT SELECT ON lms.final_mark TO 'Student'@'localhost';
 GRANT SELECT ON lms.mark TO 'Student'@'localhost';
+
+
+
+asith
