@@ -132,7 +132,7 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON lms TO 'Lecturer'@'localhost';
 -- Read, write and update permissions for attendance related tables/views
 
 CREATE USER 'Technical_Officer'@'localhost' IDENTIFIED BY 'topwd';
-GRANT SELECT, INSERT, UPDATE ON technical_officer.attendance TO 'TechnicalOfficer'@'localhost';
+GRANT SELECT, INSERT, UPDATE ON lms.attendance TO 'Technical_Officer'@'localhost';
 
 
 -- Read permission for final attendance and final marks/Grades tables/views
