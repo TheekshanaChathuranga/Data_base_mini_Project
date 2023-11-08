@@ -144,4 +144,3 @@ GRANT SELECT ON lms.mark TO 'Student'@'localhost';
 
 
 
-asith
