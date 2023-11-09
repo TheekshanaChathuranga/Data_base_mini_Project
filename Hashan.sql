@@ -1,3 +1,6 @@
+-----/*Crerate Table*/----
+
+/*Create Course Table*/
 CREATE TABLE Course(
     Course_id VARCHAR(10),
     Department_id VARCHAR(10),
@@ -7,7 +10,7 @@ CREATE TABLE Course(
     CONSTRAINT Course PRIMARY KEY (Course_id,Department_id) 
     );
 
-
+/*Create Student Table*/
 CREATE TABLE Student(
     Student_id VARCHAR(10),
     Name VARCHAR(30),
@@ -19,17 +22,20 @@ CREATE TABLE Student(
     PRIMARY KEY (Student_id,Course_id)
     );
 
-
+/*Create Courses_lecture Table*/
 CREATE TABLE Courses_lecture(
 	Course_id VARCHAR(10),
 	Lecture_id VARCHAR(10),
 	PRIMARY KEY (Course_id,Lecture_id)
     );
 
+----/*Finish Create Table*/------
 
 
+------/*Data Insert to Table*/------
 
 
+/*Insert Data For Course table*/
 INSERT INTO Course
 VALUES
 ('ICT1212','ICT002','Database Management Systems','Mr.P.H.P.Nuwan Laksiri','Theory'),
@@ -42,6 +48,7 @@ VALUES
 ('ENG1212','MD004','English II','Ms.Hiranya Amarasinghe ','Theory')
 ;
 
+/*Insert Data For Student table*/
 INSERT INTO student
 VALUES
 ('TG1010','Ishani Kawshalya','071-1245789','A001','T002','D001','ICT1212'),
@@ -235,7 +242,7 @@ VALUES
 ;
 
 
-
+/*Insert Data For Courses_lecture  table*/
 INSERT INTO Courses_lecture 
 VALUES
     ('ICT1212', 'L003'),
@@ -247,6 +254,9 @@ VALUES
     ('TMS1233', 'L008'),
     ('ENG1212', 'L009');
 
+                                                          ---------/*Finish the Data insert FOR All Table*/------
+
+                                                            -------/*Add Foreign Key For All Table*/--------                                                          
     ALTER TABLE Course
     ADD FOREIGN KEY (Department_id) REFERENCES Department(Department_id);
 
@@ -259,9 +269,11 @@ VALUES
     ALTER TABLE Courses_lecture
 	ADD FOREIGN KEY (Course_id) REFERENCES Course(Course_id),
 	ADD FOREIGN KEY (Lecture_id) REFERENCES Lecture(Lecture_id);
-
+                                                    --------/*Finish the Add Foreign key for All Table*/-------
 
     *****************************************************************
+
+                                                            -------/*Create Query*/---------
 1.Select all students and their courses:
     SELECT s.Student_id, s.Name, c.C_name
     FROM Student s
