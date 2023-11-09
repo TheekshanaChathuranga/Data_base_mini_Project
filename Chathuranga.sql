@@ -170,3 +170,13 @@ FROM Staff;
 
 SELECT * FROM staff_details;
 
+
+-- Show course id and lecturer id --
+
+
+SELECT Course_id, Lecture_id 
+FROM Courses_lecture;
+
+
+
+
