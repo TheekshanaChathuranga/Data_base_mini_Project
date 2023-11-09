@@ -150,3 +150,12 @@ CREATE USER 'Student'@'localhost' IDENTIFIED BY 'Studentpwd';
 GRANT SELECT ON lms.attendance TO 'Student'@'localhost';
 GRANT SELECT ON lms.final_mark TO 'Student'@'localhost';
 GRANT SELECT ON lms.mark TO 'Student'@'localhost';
+
+
+Create view  student_cource AS 
+SELECT s.Student_id, s.Name, c.C_name
+FROM Student s
+JOIN Course c ON s.Course_id = c.Course_id;
+
+
+SELECT * FROM student_cource;
