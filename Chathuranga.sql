@@ -159,3 +159,14 @@ JOIN Course c ON s.Course_id = c.Course_id;
 
 
 SELECT * FROM student_cource;
+
+
+--SHOW staff_id , Name , salary--
+
+Create view  staff_details AS 
+SELECT Staff_id, Name, Salary 
+FROM Staff;
+
+
+SELECT * FROM staff_details;
+
