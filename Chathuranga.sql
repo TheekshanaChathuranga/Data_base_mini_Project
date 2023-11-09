@@ -6,15 +6,26 @@ CREATE TABLE Staff
      (
      Staff_id VARCHAR(10),
      Name VARCHAR(30),
+<<<<<<< HEAD
      Salary FLOAT(7,2),
      PRIMARY KEY(Staff_id)
+=======
+     Salary FLOAT(10,2),
+     Department_id VARCHAR(8),
+     PRIMARY KEY(Staff_id),
+     FOREIGN KEY (Department_id) REFERENCES Department(Department_id)
+>>>>>>> main
      );
 
 CREATE TABLE Admin
      (
      Admin_id VARCHAR(10),
      Staff_id VARCHAR(10),
+<<<<<<< HEAD
      Contact_no VARCHAR(11),
+=======
+     Contact_no VARCHAR(12),
+>>>>>>> main
      PRIMARY KEY(Admin_id)
      );
 
@@ -22,7 +33,11 @@ CREATE TABLE Dean
      (
      Dean_id VARCHAR(10),
      Staff_id VARCHAR(10),
+<<<<<<< HEAD
      Contact_no VARCHAR(11),
+=======
+     Contact_no VARCHAR(12),
+>>>>>>> main
      PRIMARY KEY(Dean_id)
      );
 
@@ -30,15 +45,32 @@ CREATE TABLE Lecture
      (
      Lecture_id VARCHAR(10),
      Staff_id VARCHAR(10),
+<<<<<<< HEAD
      Contact_no VARCHAR(11),
      PRIMARY KEY(Lecture_id)
      );
 
+=======
+     Contact_no VARCHAR(12),
+     PRIMARY KEY(Lecture_id)
+     );
+
+CREATE TABLE Courses_lecture (
+     Course_id VARCHAR(10),
+     Lecture_id VARCHAR(10),
+     PRIMARY KEY (Course_id, Lecture_id)
+     );
+
+>>>>>>> main
 
 INSERT INTO staff
 VALUES
 ('S0001','Mr.Thushara Ekanayake','110000.00','NULL'),
+<<<<<<< HEAD
 ('S0002',Mr.Ruwan Perera','180000.00','NULL'),
+=======
+('S0002','Mr.Ruwan Perera','180000.00','NULL'),
+>>>>>>> main
 ('S0003','Mr.Sunil Premasiri','90000.00','ET001'),
 ('S0004','Mr.Ishan Rangajeewa','90000.00','ET001'),
 ('S0005','Mr.P.H.P.Nuwan Laksiri','90000.00','ICT002'),
@@ -93,12 +125,17 @@ VALUES
 ('L014','S0016','070-7878956'),
 ('L015','S0017','072-2232555'),
 ('L016','S0018','075-4578888'),
+<<<<<<< HEAD
 ('L017','S0019','075-0189256')
 ;
+=======
+('L017','S0019','075-0189256');
+>>>>>>> main
 
 
 
 
+<<<<<<< HEAD
 INSERT INTO Course
 VALUES
 ('ICT1212','ICT001','Database Management Systems','Mr.P.H.P.Nuwan Laksiri','Theory'),
@@ -144,3 +181,16 @@ GRANT SELECT ON lms.mark TO 'Student'@'localhost';
 
 
 
+=======
+
+INSERT INTO Courses_lecture (Course_id, Lecture_id)
+VALUES
+     ('ICT1212', 'L003'),
+     ('ICT1222', 'L003'),
+     ('ICT1233', 'L004'),
+     ('ICT1242', 'L005'),
+     ('ICT1253', 'L006'),
+     ('TCS1212', 'L007'),
+     ('TMS1233', 'L008'),
+     ('ENG1212', 'L009');
+>>>>>>> main
