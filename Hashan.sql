@@ -2518,9 +2518,13 @@ VALUES
 ;
 
 
-CREATE TABLE NOTICE
-    Notice_id(PRIMARY KEY)
-    Date
-    Tittle
-    Description
-    Lecture_id
+CREATE TABLE NOTICE(
+    Notice_id VARCHAR(10),
+    Lecture_id VARCHAR(10),
+    Published_day Date,
+    Tittle VARCHAR(30),
+    Notice_description VARCHAR(255),
+    PRIMARY KEY (Notice_id),
+    FOREIGN KEY Lecture_id REFERENCES Lecture(Lecture_id)
+);
+    
