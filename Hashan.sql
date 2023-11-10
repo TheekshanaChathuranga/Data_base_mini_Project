@@ -2516,3 +2516,11 @@ VALUES
 ('TG/2021/1023','ENG1212','MD004','2023-10-13','Present'),
 ('TG/2021/1024','ENG1212','MD004','2023-10-13','Present')
 ;
+
+
+CREATE TABLE NOTICE
+    Notice_id(PRIMARY KEY)
+    Date
+    Tittle
+    Description
+    Lecture_id
