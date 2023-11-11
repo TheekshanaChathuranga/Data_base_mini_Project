@@ -357,23 +357,25 @@ VALUES
 ;
 
 CREATE TABLE Attendance(
-    Student_id VARCHAR(10),
+    Student_id VARCHAR(20),
     Course_id VARCHAR(10),
     Department_id VARCHAR(10),
     Date_of_lecture DATE,
     Present_or_absent VARCHAR(10),
+    PRIMARY KEY(Student_id,Date_of_lecture),
     FOREIGN KEY(Student_id) REFERENCES Student(Student_id),
     FOREIGN KEY(Course_id) REFERENCES Course(Course_id),
-    FOREIGN KEY(Department_id) REFERENCES Department(Department_id),
+    FOREIGN KEY(Department_id) REFERENCES Department(Department_id)
+    
 );
 
 
 INSERT INTO Attendance
 VALUES
 
-                                                            --Database management systems(ICT 1212)--
+                                                            /*Database management systems(ICT 1212)*/
 
---July--
+--July
 
 ('TG/2021/1010','ICT1212','ICT002','2023-07-03','Present'),
 ('TG/2021/1011','ICT1212','ICT002','2023-07-03','Present'),
@@ -455,7 +457,7 @@ VALUES
 ('TG/2021/1023','ICT1212','ICT002','2023-07-31','Present'),
 ('TG/2021/1024','ICT1212','ICT002','2023-07-31','Present'),
 
---August--
+--August
 ('TG/2021/1010','ICT1212','ICT002','2023-08-07','Present'),
 ('TG/2021/1011','ICT1212','ICT002','2023-08-07','Present'),
 ('TG/2021/1012','ICT1212','ICT002','2023-08-07','Present'),
@@ -520,7 +522,7 @@ VALUES
 ('TG/2021/1023','ICT1212','ICT002','2023-08-28','Present'),
 ('TG/2021/1024','ICT1212','ICT002','2023-08-28','Present'),
 
---September--
+--September
 ('TG/2021/1010','ICT1212','ICT002','2023-08-07','Present'),
 ('TG/2021/1011','ICT1212','ICT002','2023-09-04','Present'),
 ('TG/2021/1012','ICT1212','ICT002','2023-09-04','Present'),
@@ -582,7 +584,7 @@ VALUES
 ('TG/2021/1023','ICT1212','ICT002','2023-09-25','Present'),
 ('TG/2021/1024','ICT1212','ICT002','2023-09-25','Present'),
 
---October--
+--October
 ('TG/2021/1011','ICT1212','ICT002','2023-10-02','Present'),
 ('TG/2021/1012','ICT1212','ICT002','2023-10-02','Present'),
 ('TG/2021/1013','ICT1212','ICT002','2023-10-02','Present'),
@@ -659,7 +661,7 @@ VALUES
 ('TG/2021/1024','ICT1212','ICT002','2023-10-30','Present'),
 
 
---November--
+--November
 ('TG/2021/1011','ICT1212','ICT002','2023-11-06','Present'),
 ('TG/2021/1012','ICT1212','ICT002','2023-11-06','Present'),
 ('TG/2021/1013','ICT1212','ICT002','2023-11-06','Present'),
@@ -688,10 +690,10 @@ VALUES
 ('TG/2021/1021','ICT1212','ICT002','2023-11-13','Present'),
 ('TG/2021/1022','ICT1212','ICT002','2023-11-13','Present'),
 ('TG/2021/1023','ICT1212','ICT002','2023-11-13','Present'),
-('TG/2021/1024','ICT1212','ICT002','2023-11-13','Present'),
+('TG/2021/1024','ICT1212','ICT002','2023-11-13','Present');
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-                                                                    --Database management system Practicum(ICT 1222)--
+                                                                    --Database management system Practicum(ICT 1222)
                                                                                                                                 --Database management system Theory(ICT 1212)--
 
 --July--
