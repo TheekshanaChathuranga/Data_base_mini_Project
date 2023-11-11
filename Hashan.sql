@@ -380,7 +380,7 @@ VALUES
 
 ('A0001','TG/2021/1010','ICT1212','ICT002','2023-07-03','Present'),
 ('A0002','TG/2021/1011','ICT1212','ICT002','2023-07-03','Present'),
-('A0003','TG/2021/1012','ICT1212','ICT002','2023-07-03','Present'),
+('A0003','TG/2021/1012','ICT1212','ICT002','2023-07-03','Absent'),
 ('A0004','TG/2021/1013','ICT1212','ICT002','2023-07-03','Present'),
 ('A0005','TG/2021/1014','ICT1212','ICT002','2023-07-03','Present'),
 ('A0006','TG/2021/1015','ICT1212','ICT002','2023-07-03','Present'),
@@ -2520,6 +2520,10 @@ VALUES
 ('A1930','TG/2021/1024','ENG1212','MD004','2023-10-13','Present')
 ;
 
+/*Create Queryy*/
+SELECT *
+FROM Attendance
+WHERE Present_or_absent='Present'
 
 CREATE TABLE NOTICE(
     Notice_id VARCHAR(10),
