@@ -2525,12 +2525,12 @@ SELECT *
 FROM Attendance
 WHERE Present_or_absent='Present'
 
-CREATE TABLE NOTICE(
+CREATE TABLE Notice(
     Notice_id VARCHAR(10),
     Lecture_id VARCHAR(10),
     Published_day Date,
     Tittle VARCHAR(30),
-    Notice_description VARCHAR(255),
+    Notice VARCHAR(255),
     PRIMARY KEY (Notice_id),
     FOREIGN KEY Lecture_id REFERENCES Lecture(Lecture_id)
 );
