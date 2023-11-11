@@ -357,6 +357,7 @@ VALUES
 ;
 
 CREATE TABLE Attendance(
+    Attendance_id VARCHAR(10);
     Student_id VARCHAR(20),
     Course_id VARCHAR(10),
     Department_id VARCHAR(10),
