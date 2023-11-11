@@ -345,7 +345,7 @@ CREATE TABLE Medical(
     FOREIGN KEY(Student_id) REFERENCES Student(Student_id),
     FOREIGN KEY(Course_id) REFERENCES Course(Course_id),
     FOREIGN KEY(Department_id) REFERENCES Department(Department_id),
-    PRIMARY KEY (Student_id,Course_id)
+    PRIMARY KEY (Attendance_id)
 );
 
 INSERT INTO Medical
