@@ -1,7 +1,7 @@
 --01 Create the StudentQuiz_Marks view 5%
 
 CREATE VIEW StudentQuiz_Marks AS
-SELECT e.Student_id, e.Course_id, 
+SELECT DISTINCT e.Student_id, e.Course_id, 
      ((e.quiz1 + e.quiz2 + e.quiz3 - LEAST(e.quiz1, LEAST(e.quiz2, e.quiz3))) / 2) * 0.05 AS `Average Quiz Score`
 FROM exam_marks e
 INNER JOIN student s ON e.Student_id = s.Student_id;
@@ -11,7 +11,7 @@ SELECT * FROM StudentQuiz_Marks;
 
 --02 Create the StudentAssessment_Marks view with a 5% adjusted assessment mark
 CREATE VIEW StudentAssessment_Marks AS
-SELECT e.Student_id, e.Course_id, 
+SELECT DISTINCT e.Student_id, e.Course_id, 
     (e.Assesments * 0.05) AS `Adjusted_Assessment_Mark`
 FROM exam_marks e
 INNER JOIN student s ON e.Student_id = s.Student_id;
@@ -23,7 +23,7 @@ SELECT * FROM StudentAssessment_Marks;
 --03 Create the StudentMidterm_Marks view with 20% weighted MidPractical and MidTheory scores
 
 CREATE VIEW StudentMidterm_Marks AS
-SELECT e.Student_id, e.Course_id, 
+SELECT DISTINCT e.Student_id, e.Course_id, 
     ((e.Mid_mark) * 0.20) AS `Mid_Mark`
 FROM exam_marks e
 INNER JOIN student s ON e.Student_id = s.Student_id;
@@ -36,7 +36,7 @@ SELECT * FROM StudentMidterm_Marks;
 
 
 CREATE VIEW Student_All_Marks AS
-SELECT e.Student_id, e.Course_id,
+SELECT DISTINCT e.Student_id, e.Course_id,
              ((e.quiz1 + e.quiz2 + e.quiz3 - LEAST(e.quiz1, LEAST(e.quiz2, e.quiz3))) / 2) * 0.05 AS `Quiz_Score` ,
              (e.Assesments * 0.05) AS `Assessment_Mark` ,
              ((e.Mid_mark) * 0.20) AS `MidMark`
@@ -50,7 +50,7 @@ SELECT * FROM Student_All_Marks;
 --05 Create the StudentCA_Marks view  
 
 CREATE VIEW StudentCA_Marks AS
-SELECT e.Student_id, e.Course_id,
+SELECT DISTINCT e.Student_id, e.Course_id,
        ((e.quiz1 + e.quiz2 + e.quiz3 - LEAST(e.quiz1, LEAST(e.quiz2, e.quiz3))) / 2) * 0.05 AS `Quiz_Score`,
        (e.Assesments * 0.05) AS `Assessment_Mark`,
        ((e.Mid_mark) * 0.20) AS `MidMark`,
@@ -71,7 +71,7 @@ SELECT * FROM StudentCA_Marks;
 
 
 CREATE VIEW StudentCA_Marks_With_Eligibility AS
-SELECT e.Student_id, e.Course_id,
+SELECT DISTINCT e.Student_id, e.Course_id,
     ((e.quiz1 + e.quiz2 + e.quiz3 - LEAST(e.quiz1, LEAST(e.quiz2, e.quiz3))) / 2) * 0.05 AS `Quiz_Score`,
     (e.Assesments * 0.05) AS `Assessment_Mark`,
     ((e.Mid_mark) * 0.20) AS `MidMark`,
@@ -99,7 +99,7 @@ SELECT * FROM StudentCA_Marks_With_Eligibility;
 
 
 CREATE VIEW StudentEnd_Marks AS
-SELECT e.Student_id, e.Course_id, 
+SELECT DISTINCT e.Student_id, e.Course_id, 
     ((e.Mid_mark ) * 0.70) AS `EndMark`
 FROM exam_marks e
 INNER JOIN student s ON e.Student_id = s.Student_id;
@@ -111,7 +111,7 @@ SELECT * FROM StudentEnd_Marks;
 --08 Create the StudentFinal_Marks view
 
 create view StudentFinal_Marks AS
-SELECT e.Student_id, e.Course_id,  
+SELECT DISTINCT e.Student_id, e.Course_id,  
     (c.CA_Marks + e.EndMark) as FinalMark
 from studentca_marks_with_eligibility c, studentend_marks e 
 where c.Eligibility_Status = 'Eligible' and 
@@ -126,7 +126,7 @@ SELECT * FROM StudentFinal_Marks;
 
 
 create view StudentGradePoint AS 
-select  Student_id, Course_id,
+select  DISTINCT Student_id, Course_id,
    case
       when(FinalMark>= 85 and FinalMark<= 100) then 'A+'
       when(FinalMark>= 80 and FinalMark<= 84.999999) then 'A'
@@ -171,7 +171,7 @@ SELECT * FROM  StudentGradePoint;
 
 
 create view Student_GradePoint_For_Years AS 
-SELECT Student_id, Course_id, 
+SELECT DISTINCT Student_id, Course_id, 
     CASE
         WHEN Student_id LIKE 'TG/2021/%' THEN
             CASE
@@ -245,3 +245,29 @@ FROM studentfinal_marks;
 
 
 SELECT * FROM  Student_GradePoint_For_Years;
+
+
+-- 11 View Students Attendance 
+
+CREATE VIEW StudentAttendanceSummary AS
+SELECT Student_id,
+    COUNT(DISTINCT Date_of_lecture) AS TotalClassesAttended
+FROM Attendance
+WHERE Present_or_absent = 'Present'
+GROUP BY Student_id;
+
+
+SELECT * FROM StudentAttendanceSummary;
+
+
+-- 12 View All Eligibility Student
+
+CREATE  VIEW End_Exam_Eligibility AS
+SELECT DISTINCT SAS.*, SME.Course_id, SME.Eligibility_Status
+FROM StudentAttendanceSummary SAS
+JOIN StudentCA_Marks_With_Eligibility SME ON SAS.Student_id = SME.Student_id
+WHERE SAS.TotalClassesAttended >= 75
+  AND SME.Eligibility_Status = 'Eligible';
+
+
+SELECT * FROM End_Exam_Eligibility;
