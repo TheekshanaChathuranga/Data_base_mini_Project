@@ -2605,6 +2605,7 @@ GROUP BY
     Student_id;
 
 
+
 --
 SELECT * FROM StudentAttendanceSummary;
 
