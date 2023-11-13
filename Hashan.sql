@@ -29,6 +29,45 @@ CREATE TABLE Courses_lecture(
 	PRIMARY KEY (Course_id,Lecture_id)
     );
 
+/*Create Attendence table*/
+CREATE TABLE Attendance(
+    Attendance_id VARCHAR(10);
+    Student_id VARCHAR(20),
+    Course_id VARCHAR(10),
+    Department_id VARCHAR(10),
+    Date_of_lecture DATE,
+    Present_or_absent VARCHAR(10),
+    PRIMARY KEY(Attendance_id),
+    FOREIGN KEY(Student_id) REFERENCES Student(Student_id),
+    FOREIGN KEY(Course_id) REFERENCES Course(Course_id),
+    FOREIGN KEY(Department_id) REFERENCES Department(Department_id)
+    
+);
+
+/*Create Notice Table*/
+CREATE TABLE Notice(
+    Notice_id VARCHAR(10),
+    Lecture_id VARCHAR(10),
+    Published_day Date,
+    Title VARCHAR(255),
+    Notice VARCHAR(255),
+    PRIMARY KEY (Notice_id),
+    FOREIGN KEY Lecture_id REFERENCES Lecture(Lecture_id)
+);
+
+/*Create Medical Table*/
+CREATE TABLE Medical(
+    Medical_id VARCHAR(20),
+    Student_id VARCHAR(10),
+    Course_id VARCHAR(10),
+    Department_id VARCHAR(10),
+    Submission_Date DATE,
+    Description_Date VARCHAR (100),
+    FOREIGN KEY(Student_id) REFERENCES Student(Student_id),
+    FOREIGN KEY(Course_id) REFERENCES Course(Course_id),
+    FOREIGN KEY(Department_id) REFERENCES Department(Department_id),
+    PRIMARY KEY (Attendance_id)
+);
 ----/*Finish Create Table*/------
 
 
@@ -335,19 +374,8 @@ VALUES
 
 /**********************************************************************************************************************************************************************************************/
 
-CREATE TABLE Medical(
-    Medical_id VARCHAR(20),
-    Student_id VARCHAR(10),
-    Course_id VARCHAR(10),
-    Department_id VARCHAR(10),
-    Submission_Date DATE,
-    Description_Date VARCHAR (100),
-    FOREIGN KEY(Student_id) REFERENCES Student(Student_id),
-    FOREIGN KEY(Course_id) REFERENCES Course(Course_id),
-    FOREIGN KEY(Department_id) REFERENCES Department(Department_id),
-    PRIMARY KEY (Attendance_id)
-);
 
+/*Insert Data for Medical Table*/
 INSERT INTO Medical
 VALUES
 ('MED001','TG/2021/1010','ICT1212','ICT002','2023-08-25','Sick'),
@@ -356,21 +384,8 @@ VALUES
 ('MED004','TG/2021/1022','MD004','ICT002','2023-08-25','Fever')
 ;
 
-CREATE TABLE Attendance(
-    Attendance_id VARCHAR(10);
-    Student_id VARCHAR(20),
-    Course_id VARCHAR(10),
-    Department_id VARCHAR(10),
-    Date_of_lecture DATE,
-    Present_or_absent VARCHAR(10),
-    PRIMARY KEY(Attendance_id),
-    FOREIGN KEY(Student_id) REFERENCES Student(Student_id),
-    FOREIGN KEY(Course_id) REFERENCES Course(Course_id),
-    FOREIGN KEY(Department_id) REFERENCES Department(Department_id)
-    
-);
 
-
+/*Insert Data for Attendance Table*/
 INSERT INTO Attendance
 VALUES
 
@@ -2520,27 +2535,22 @@ VALUES
 ('A1930','TG/2021/1024','ENG1212','MD004','2023-10-13','Present')
 ;
 
-/*Create Queryy*/
-SELECT *
-FROM Attendance
-WHERE Present_or_absent='Present'
 
-CREATE TABLE Notice(
-    Notice_id VARCHAR(10),
-    Lecture_id VARCHAR(10),
-    Published_day Date,
-    Title VARCHAR(255),
-    Notice VARCHAR(255),
-    PRIMARY KEY (Notice_id),
-    FOREIGN KEY Lecture_id REFERENCES Lecture(Lecture_id)
-);
-
+/*Insert Data For Notice table*/
 
 INSERT INTO Notice
 VALUES
     ('N0001','L006','2023-07-25','Level-1 Sem-i CA-II Details','2023-07-30-ICT LEVEL 1 SEMESTER 1 CA-II  RESULTS-2023 DOWNLOAD now'),
     ('N0002','L003','2023-07-29','Level-II Quiz-1','NOTICE ENT2213 DIGITAL ELECTRONIC SYSTEMS QUIZ -1 Held 2023-08-01')
 ;
+
+
+-----------------------------------------------------------------------------------------------------
+/*Create Query*/
+SELECT *
+FROM Attendance
+WHERE Present_or_absent='Present'
+
 
 
 /*Create Query*/
