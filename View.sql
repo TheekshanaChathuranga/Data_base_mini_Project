@@ -35,7 +35,7 @@ SELECT * FROM StudentMidterm_Marks;
 --04 Create the Student_All_Marks view  
 
 
-CREATE VIEW Student_All_Marks AS
+CREATE VIEW Student_All_Marks AS   
 SELECT DISTINCT e.Student_id, e.Course_id,
              ((e.quiz1 + e.quiz2 + e.quiz3 - LEAST(e.quiz1, LEAST(e.quiz2, e.quiz3))) / 2) * 0.05 AS `Quiz_Score` ,
              (e.Assesments * 0.05) AS `Assessment_Mark` ,
@@ -95,7 +95,7 @@ INNER JOIN student s ON e.Student_id = s.Student_id;
 SELECT * FROM StudentCA_Marks_With_Eligibility;
 
 
---07 Create the StudentEnd_Marks view with a 70% adjusted assessment mark
+--07 Create the Student_End_Marks view with a 70% adjusted assessment mark
 
 
 CREATE VIEW StudentEnd_Marks AS
@@ -244,7 +244,7 @@ SELECT DISTINCT Student_id, Course_id,
 FROM studentfinal_marks;
 
 
-SELECT * FROM  Student_GradePoint_For_Years;
+SELECT DISTINCT Student_id,Grade_Point FROM  Student_GradePoint_For_Years;
 
 
 -- 11 View Students Attendance 
@@ -257,7 +257,7 @@ WHERE Present_or_absent = 'Present'
 GROUP BY Student_id;
 
 
-SELECT * FROM StudentAttendanceSummary;
+SELECT * FROM Student_Attendance_Summary;
 
 
 -- 12 View All Eligibility Student
