@@ -271,3 +271,45 @@ WHERE SAS.TotalClassesAttended >= 75
 
 
 SELECT * FROM End_Exam_Eligibility;
+
+
+-- Final Gpa student
+
+create view Student_Final_GPA AS 
+SELECT 
+    Student_id, 
+    SUM(FinalMark) / 8 AS 'Sum_Final_Mark',
+    CASE
+        WHEN (SUM(FinalMark) / 8) >= 85 AND (SUM(FinalMark) / 8) <= 100 THEN 'A+'
+        WHEN (SUM(FinalMark) / 8) >= 80 AND (SUM(FinalMark) / 8) <= 84.999999 THEN 'A'
+        WHEN (SUM(FinalMark) / 8) >= 75 AND (SUM(FinalMark) / 8) <= 79.999999 THEN 'A-'
+        WHEN (SUM(FinalMark) / 8) >= 70 AND (SUM(FinalMark) / 8) <= 74.999999 THEN 'B+'
+        WHEN (SUM(FinalMark) / 8) >= 65 AND (SUM(FinalMark) / 8) <= 69.999999 THEN 'B'
+        WHEN (SUM(FinalMark) / 8) >= 60 AND (SUM(FinalMark) / 8) <= 64.999999 THEN 'B-'
+        WHEN (SUM(FinalMark) / 8) >= 55 AND (SUM(FinalMark) / 8) <= 59.999999 THEN 'C+'
+        WHEN (SUM(FinalMark) / 8) >= 50 AND (SUM(FinalMark) / 8) <= 54.999999 THEN 'C'
+        WHEN (SUM(FinalMark) / 8) >= 45 AND (SUM(FinalMark) / 8) <= 49.999999 THEN 'C-'
+        WHEN (SUM(FinalMark) / 8) >= 40 AND (SUM(FinalMark) / 8) <= 44.999999 THEN 'D+'
+        WHEN (SUM(FinalMark) / 8) >= 35 AND (SUM(FinalMark) / 8) <= 39.999999 THEN 'D'
+        WHEN (SUM(FinalMark) / 8) >= 0 AND (SUM(FinalMark) / 8) <= 34.999999 THEN 'F'
+        ELSE 'Not_Valid'
+    END AS 'Grade',
+    CASE
+        WHEN (SUM(FinalMark) / 8) >= 85 AND (SUM(FinalMark) / 8) <= 100 THEN 4.0
+        WHEN (SUM(FinalMark) / 8) >= 80 AND (SUM(FinalMark) / 8) <= 84.999999 THEN 4.0
+        WHEN (SUM(FinalMark) / 8) >= 75 AND (SUM(FinalMark) / 8) <= 79.999999 THEN 3.7
+        WHEN (SUM(FinalMark) / 8) >= 70 AND (SUM(FinalMark) / 8) <= 74.999999 THEN 3.3
+        WHEN (SUM(FinalMark) / 8) >= 65 AND (SUM(FinalMark) / 8) <= 69.999999 THEN 3.0
+        WHEN (SUM(FinalMark) / 8) >= 60 AND (SUM(FinalMark) / 8) <= 64.999999 THEN 2.7
+        WHEN (SUM(FinalMark) / 8) >= 55 AND (SUM(FinalMark) / 8) <= 59.999999 THEN 2.3
+        WHEN (SUM(FinalMark) / 8) >= 50 AND (SUM(FinalMark) / 8) <= 54.999999 THEN 2.0
+        WHEN (SUM(FinalMark) / 8) >= 45 AND (SUM(FinalMark) / 8) <= 49.999999 THEN 1.7
+        WHEN (SUM(FinalMark) / 8) >= 40 AND (SUM(FinalMark) / 8) <= 44.999999 THEN 1.3
+        WHEN (SUM(FinalMark) / 8) >= 35 AND (SUM(FinalMark) / 8) <= 39.999999 THEN 1.0
+        WHEN (SUM(FinalMark) / 8) >= 0 AND (SUM(FinalMark) / 8) <= 34.999999 THEN 0
+        ELSE 'Not_Valid'
+    END AS 'Grade_Point'
+FROM studentfinal_marks
+GROUP BY Student_id;
+
+SELECT Student_id,Grade_Point FROM Student_Final_GPA;
